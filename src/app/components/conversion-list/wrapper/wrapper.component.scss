@@ -1,0 +1,6 @@
+@use 'abstracts' as abs;
+
+:host {
+    gap: 1.6rem;
+    @include abs.mix-flex($dir: column)
+}

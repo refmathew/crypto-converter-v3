@@ -1,0 +1,7 @@
+<img [src]="currentLogo" class="logo">
+<input type="number" class="converter__amount" #amount (input)="onChange()"
+  [(ngModel)]="amountToConvert">
+<div class="divider"></div>
+<select id="currency" class="converter__type" name="currency" #currency (change)="onChange()" [(ngModel)]="symToConvert" >
+  <option *ngFor="let currency of currencies" [value]="currency.sym">{{ currency.name }}</option>
+</select>

@@ -1,0 +1,4 @@
+<ng-container *ngFor="let currency of currencies | keyvalue; let i = index" >
+    <app-conversion-item *ngIf="conversions[currencies[i].sym]" [currency]="currency">{{currency['sym']}}</app-conversion-item>
+    <!-- <app-conversion-item [currency]="currency"></app-conversion-item> -->
+</ng-container>

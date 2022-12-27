@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@use "abstracts" as abs;
+@use "base";
+
+body {
+    min-width: 49rem;
+}

@@ -1,0 +1,41 @@
+@use 'abstracts' as abs;
+
+:host {
+    height: abs.fnc-clampify(49, 63);
+    padding: .6rem 1.6rem;
+    border: abs.fnc-clampify(3, 4) solid abs.$var-secondary;
+    gap: 1.6rem;
+    color: abs.$var-secondary;
+    @include abs.mix-flex($aln: center);
+    @include abs.mix-font('Open sans', 13, 16);
+
+    .logo {
+        width: 2.4rem;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    .divider {
+        width: .2rem;
+        height: 3.2rem;
+        background-color: rgba($color: abs.$var-secondary, $alpha: .32);
+    }
+
+    select {
+        width: 21ch;
+        padding: .4rem 1.6rem;
+    appearance: auto;
+
+        option {
+            background-color: abs.$var-primary;
+        }
+    }
+}

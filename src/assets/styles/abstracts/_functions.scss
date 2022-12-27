@@ -1,0 +1,54 @@
+@use 'sass:math';
+
+@function preferred-value($max-value){
+  @return #{ math.div( $max-value, 13.45895020188425302826 ) }vw;
+}
+
+@function convert-to-rem($px-value){
+  @return #{ math.div( $px-value, 10 ) }rem;
+}
+
+@function clamp-values($min-value, $max-value: false){
+  @if($max-value){
+    @return clamp(#{ convert-to-rem($min-value) }, #{ preferred-value($max-value) }, #{ convert-to-rem($max-value) })
+  } @else{
+    @return convert-to-rem($min-value);
+  }
+}
+
+// This is assuming 10px is the root font size you use in your dev.
+// Please see globals.scss
+@function remify($px){
+  @return #{ math.div( $px, 10 ) }rem;
+}
+
+// =============================================================================
+// ===   Clampification   ======================================================
+// =============================================================================
+
+// append px to number value (this is because the css calc fn only allows 
+// division or subtraction if one argument is a number, so I needed to get 
+// plain numbers as argument to the clampify function)
+@function pixelfyNum($number) {
+  @return #{$number}px;
+}
+
+// minimum & maximum sizes of viewport in design
+$minWidth : 360;
+$maxWidth : 1440;
+$minWidthPx: pixelfyNum($minWidth);
+$maxWidthPx: pixelfyNum($maxWidth);
+
+// we only care about resizing in between the minWidth and the maxWidth
+$rangeVw : calc($maxWidth - $minWidth);
+
+@function clampify($min, $max) {
+  // we only care about resizing in between the $min and $max
+  $rangeVal : calc($max - $min);
+
+  // ratio of every 1px in $rangeVal to $rangeVw
+  $ratio : calc((1 / $rangeVal) * $rangeVw);
+
+  $clampified : clamp(remify( $min ), calc( remify( $min ) + (( 100vw - $minWidthPx ) / $ratio )), remify( $max ) );
+  @return $clampified
+}

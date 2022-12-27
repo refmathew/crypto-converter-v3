@@ -1,0 +1,16 @@
+@use "abstracts" as abs;
+
+.header { 
+  font-family: abs.$var-f-header;
+  font-size: abs.fnc-clampify(22, 36);
+  font-weight: 700;
+  @include abs.mix-flex($dir: column, $aln: center);
+
+  &__logo { 
+    width: abs.fnc-clampify(36, 48);
+  }
+
+  &__title { 
+    text-align: center;
+  }
+}

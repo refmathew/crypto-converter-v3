@@ -1,0 +1,46 @@
+@use './variables' as var;
+@use './functions' as fn;
+
+@mixin max-width__section{
+  margin: auto;
+  max-width: 144rem;
+}
+
+@mixin for-size($size) {
+  @if $size == tablet {
+    @media (min-width: 768px) { @content; }
+  } @else if $size == desktop{
+    @media (min-width: 1366px) { @content; }
+  } @else{
+    @media(min-width: #{$size}px){ @content; }
+  }
+}
+
+
+@mixin flex($dir:row, $jst:initial, $aln:initial){
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $jst;
+  align-items: $aln;
+}
+
+@mixin font($fam, $size-min, $size-max: false, $wgt: 400){
+  font-family: $fam, sans-serif;
+  font-size: fn.clamp-values($size-min, $size-max);
+  font-weight: $wgt
+}
+
+@mixin clamped($property, $min, $max){
+  #{$property}: fn.clamp-values($min, $max);
+}
+
+//fix this next project
+@mixin clamped-shorthand-2($property, $top-bottom-min-value, $top-bottom-max-value, $left-right-min-value, $left-right-max-value){
+  #{$property}: fn.clamp-values($top-bottom-min-value, $top-bottom-max-value) fn.clamp-values($left-right-min-value, $left-right-max-value);
+}
+
+@mixin header-font(){
+  font-family: var.$f-header;
+  font-weight: 700;
+  @include clamped(font-size, 32, 48);
+}
