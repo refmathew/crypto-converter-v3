@@ -3,11 +3,11 @@ import { CurrencyService } from 'src/app/services/currency.service';
 import { RateService } from 'src/app/services/rate.service';
 
 @Component({
-  selector: 'app-wrapper',
-  templateUrl: './wrapper.component.html',
-  styleUrls: ['./wrapper.component.scss']
+  selector: 'app-currency-list-wrapper',
+  templateUrl: './currency-list-wrapper.component.html',
+  styleUrls: ['./currency-list-wrapper.component.scss']
 })
-export class WrapperComponent implements OnInit {
+export class CurrencyListWrapperComponent implements OnInit {
   currencies;
   conversions;
   blacklist;

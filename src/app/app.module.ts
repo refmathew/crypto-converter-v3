@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { WrapperComponent } from './components/conversion-list/wrapper/wrapper.component';
 import { ConversionItemComponent } from './components/conversion-list/conversion-item/conversion-item.component';
+import { CurrencyListWrapperComponent } from './components/currency-list/currency-list-wrapper/currency-list-wrapper.component';
+import { CurrencyListItemComponent } from './components/currency-list/currency-list-item/currency-list-item.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ConversionItemComponent } from './components/conversion-list/conversion
     InputFieldComponent,
     HeaderComponent,
     WrapperComponent,
-    ConversionItemComponent
+    ConversionItemComponent,
+    CurrencyListWrapperComponent,
+    CurrencyListItemComponent
   ],
   imports: [
     BrowserModule,

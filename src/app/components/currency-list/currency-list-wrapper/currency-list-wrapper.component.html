@@ -1,0 +1,6 @@
+<div class="show" *ngIf="blacklist.length !== 0" >Show also:</div>
+<div class="item-wrapper" >
+<ng-container *ngFor="let currency of currencies | keyvalue; let i = index" >
+    <app-currency-list-item *ngIf="isOnBlacklist(currencies[i].sym)" [currency]="currency"></app-currency-list-item>
+</ng-container>
+</div>

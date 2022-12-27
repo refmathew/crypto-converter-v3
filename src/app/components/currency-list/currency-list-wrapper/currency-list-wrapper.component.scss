@@ -1,0 +1,15 @@
+@use 'abstracts' as abs;
+
+:host {
+    gap: .8rem;
+    @include abs.mix-flex($dir: column, $aln: center);
+
+    .show {
+        @include abs.mix-font('Open sans', 13, 16);
+    }
+
+    .item-wrapper {
+        gap: .8rem;
+        @include abs.mix-flex($jst: center);
+    }
+}

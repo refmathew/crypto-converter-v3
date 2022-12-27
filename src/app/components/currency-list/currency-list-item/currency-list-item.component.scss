@@ -1,0 +1,15 @@
+@use 'abstracts' as abs;
+
+button {
+    width: 2.4rem;
+    height: 2.4rem;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 50%;
+    border: abs.fnc-clampify(1, 2) solid abs.$var-secondary;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}

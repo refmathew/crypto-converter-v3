@@ -35,5 +35,16 @@
         .name {
             opacity: .8;
         }
+
+        .close-button {
+            @include abs.mix-font('Open sans', 16, 20);
+            opacity: .4;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1;
+                color: #E71D36;
+            }
+        }
     
 }

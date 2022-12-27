@@ -2,4 +2,5 @@
     <img [src]="currency.imgUrl" class="logo">
     <span class="conversion"> {{currency.conversion}} </span>
     <span class="name">{{currency.sym.toUpperCase()}}</span>
+    <button class="close-button" (click)="onRemoveButtonClick(currency.sym)">&#10005;</button>
 </ng-container>
